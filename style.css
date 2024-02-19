@@ -1,0 +1,178 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #000; /* Black background */
+    color: #fff; /* White text for contrast */
+    text-align: center;
+}
+
+header {
+    position: relative;
+    color: #fff;
+    padding: 60px 20px;
+    background-image: linear-gradient(to bottom, #6a3093 0%, #a044ff 100%); /* Purple gradient */
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    overflow: hidden; /* For wave animation */
+}
+
+header h1, header p {
+    color: #fff; /* Ensure header text is white for visibility */
+}
+
+header h1 {
+    margin: 0;
+    font-weight: 900;
+    font-size: 3rem; /* Updated font size for name */
+    display: inline-block;
+}
+
+header p {
+    font-weight: 400;
+    margin: 10px 0 0;
+}
+
+main {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+section {
+    background-color: #1a1a1a; /* Dark background for sections */
+    color: #fff; /* White text for sections */
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+section:hover {
+    transform: translateY(-5px);
+}
+
+h2 {
+    font-weight: 900;
+    color: #a044ff; /* Purple for headings */
+    margin-bottom: 15px;
+}
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.skill-category {
+    background: #262626; /* Slightly lighter black for skill categories */
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.skill-category:hover {
+    transform: translateY(-5px);
+    background: #333; /* Dark grey on hover */
+}
+
+.skill-category h3 {
+    margin-top: 0;
+    color: #fff;
+    font-weight: 600;
+}
+
+.skill-category h3 i {
+    margin-right: 10px;
+    color: #a044ff; /* Purple icons */
+}
+
+.skill-category p {
+    margin: 10px 0 0;
+    font-weight: 400;
+}
+
+a {
+    color: #a044ff; /* Purple links */
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+    color: #dab6ff; /* Lighter purple on hover */
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem; /* Adjusted for smaller screens */
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    .skills-container {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
+#typed-name:after {
+    content: '|';
+    animation: blink 1s infinite;
+    color: #fff; /* Ensuring cursor color is visible */
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+.wave-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: -1; /* Positions the wave behind the text */
+}
+
+.waves {
+    position: relative;
+    width: 100%;
+    height: 15vh;
+    margin-bottom: -7px; /* Fix for Safari gap */
+    min-height: 100px;
+    max-height: 150px;
+}
+
+.parallax > use {
+    animation: moveForever 25s cubic-bezier(.55,.5,.45,.5) infinite;
+    fill: rgba(255,255,255,0.2); /* Adjusted wave color for visibility against the dark background */
+}
+
+@keyframes moveForever {
+    0% {
+        transform: translate3d(-90px, 0, 0);
+    }
+    100% {
+        transform: translate3d(85px, 0, 0);
+    }
+}
+
+
+section {
+    opacity: 0.5; /* Default lower opacity for non-active sections */
+    transition: opacity 1s ease-in-out;
+}
+
+.fade-in {
+    opacity: 1; /* Full opacity for the active (central) section */
+}
+
+.fade-out {
+    opacity: 0.2; /* Less opacity for non-central sections */
+}

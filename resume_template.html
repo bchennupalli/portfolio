@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhaskar Pramod Chennupalli - Software Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css" integrity="sha384-7bw/Z60lC4LmDmJxAi9V7lMwUdEimNRo3pwgnKEebEDaP9E5YdgyHzFME3vA6TK8" crossorigin="anonymous">
+</head>
+<body>
+
+<header>
+    <div id="typed-name" class="typed-name"></div>
+    <p>Software Engineer | Web Developer | Data Enthusiast</p>
+</header>
+
+<main>
+    <section class="education" data-aos="fade-up" data-aos-duration="1000">
+        <h2>Education</h2>
+        <p><strong>Binghamton University, Binghamton, NY, USA</strong><br>Master of Science in Computer Science, Expected May 2025</p>
+        <p><strong>Koneru Lakshmaiah Education Foundation, Vijayawada, India</strong><br>Bachelor of Technology in Electronics and Communication Engineering, May 2021</p>
+    </section>
+    
+    <section class="experience" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+        <h2>Experience</h2>
+        <p>In my professional journey, I've contributed significantly to tech giants like Accenture and Cognizant, enhancing software efficiency and testing methodologies. At Accenture, as an Application Development Analyst, I led performance optimization initiatives that resulted in a notable 20% increase in application efficiency and played a key role in fostering business alignment through cross-functional collaboration, improving project outcomes by 35%. My tenure at Cognizant as a Software Development Engineer in Test allowed me to boost testing efficiency by 30%, thanks to innovative automation scripts and manual testing strategies.</p>
+    </section>
+
+    <section class="technical-skills" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+        <h2>Technical Skills</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3><i class="fas fa-code"></i> Programming Languages</h3>
+                <p>C, Java, Python, SQL, PL/SQL</p>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fab fa-html5"></i> Web Technologies</h3>
+                <p>HTML, CSS, React, Django</p>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-tools"></i> Development Tools</h3>
+                <p>GIT</p>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fab fa-windows"></i> Operating Systems</h3>
+                <p>Windows, Linux</p>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-cloud"></i> Cloud Platforms</h3>
+                <p>Oracle Fusion, Azure</p>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-brain"></i> Software Engineering</h3>
+                <p>Data Structures, Algorithms, OOPs, Machine Learning</p>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-vial"></i> Testing Methodologies</h3>
+                <p>Manual Testing, Automation Testing</p>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-database"></i> Data Analysis Tools</h3>
+                <p>MongoDB, Matplotlib, Seaborn</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+        <h2>Projects</h2>
+        <p>My portfolio showcases diverse projects that highlight my expertise in software engineering and data analysis. Notable projects include the development of an Automatic Number Plate Recognition system using machine learning, which significantly improved identification accuracy. I also led the creation of a Django-based Fashion E-Commerce website, enhancing user engagement by 30%, and a Java Full-Stack Bus Schedule Management System that optimized operations for BlueBus.com. Additionally, my data analysis project on LinkedIn job postings provided key insights into job market trends, utilizing advanced tools like MongoDB and Python for data visualization.</p>
+    </section>
+
+    <section class="publications" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+        <h2>Publications</h2>
+        <p>My scholarly contributions include a publication on the design and analysis of a Circular Micro-strip Patch Antenna, optimized for WLAN applications. This work, published in December 2020, demonstrates my ability to apply theoretical knowledge to practical challenges, contributing valuable insights to the field of wireless communications.</p>
+    </section>
+</main>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var typedText = 'Bhaskar Pramod Chennupalli';
+    var typingSpeed = 100; // Milliseconds
+    var i = 0;
+    var container = document.getElementById('typed-name');
+
+    function typeWriter() {
+        if (i < typedText.length) {
+            container.innerHTML += typedText.charAt(i);
+            i++;
+            setTimeout(typeWriter, typingSpeed);
+        }
+    }
+
+    typeWriter();
+});
+
+AOS.init({
+    once: true, // whether animation should happen only once - while scrolling down
+});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js" integrity="sha384-OAIv/Z+5yL7z1zD97Z/+KzZQC1a+u4eNz5VIuAn7b7iIj5Kq3VnZtSIf5uBmT3Sz" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const sections = document.querySelectorAll('section');
+    
+        function checkPosition() {
+            let closestSection = null;
+            let closestSectionDistance = Infinity;
+            const windowHeight = window.innerHeight;
+            const scrollPosition = window.scrollY;
+    
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const sectionDistance = Math.abs(scrollPosition + windowHeight / 2 - (sectionTop + scrollPosition + section.offsetHeight / 2));
+    
+                if (sectionDistance < closestSectionDistance) {
+                    closestSection = section;
+                    closestSectionDistance = sectionDistance;
+                }
+            });
+    
+            sections.forEach(section => {
+                if (section === closestSection) {
+                    section.classList.add('fade-in');
+                    section.classList.remove('fade-out');
+                } else {
+                    section.classList.remove('fade-in');
+                    section.classList.add('fade-out');
+                }
+            });
+        }
+    
+        window.addEventListener('scroll', checkPosition);
+        window.addEventListener('resize', checkPosition);
+    
+        checkPosition(); // Initial check
+    });
+    </script>
+        
+</body>
+</html>

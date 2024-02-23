@@ -4,27 +4,27 @@ body, html {
     font-family: 'Roboto', sans-serif;
     background-color: #000; /* Black background */
     color: #fff; /* White text for contrast */
-    text-align: center;
+    text-align: left; /* Align text to the left */
 }
 
 header {
     position: relative;
     color: #fff;
     padding: 60px 20px;
-    background-image: linear-gradient(to bottom, #6a3093 0%, #a044ff 100%); /* Purple gradient */
+    background-image: linear-gradient(to bottom, #6a3093 0%, #a044ff 100%);
     text-align: center;
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    overflow: hidden; /* For wave animation */
+    overflow: hidden;
 }
 
 header h1, header p {
-    color: #fff; /* Ensure header text is white for visibility */
+    color: #fff;
 }
 
 header h1 {
     margin: 0;
     font-weight: 900;
-    font-size: 3rem; /* Updated font size for name */
+    font-size: 3rem;
     display: inline-block;
 }
 
@@ -34,49 +34,56 @@ header p {
 }
 
 main {
+    display: block; /* Use block layout instead of flex */
+    overflow-x: hidden; /* Disable horizontal scrolling */
+    overflow-y: auto; /* Enable vertical scrolling if necessary */
     padding: 20px;
-    max-width: 800px;
-    margin: auto;
 }
 
 section {
-    background-color: #1a1a1a; /* Dark background for sections */
-    color: #fff; /* White text for sections */
-    margin-bottom: 20px;
+    width: auto; /* Adjust width based on content */
+    margin-right: auto; /* Align section to the left */
+    margin-left: 0; /* Ensure it sticks to the left */
+    background-color: #1a1a1a;
+    color: #fff;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    transition: transform 0.5s ease, opacity 1s ease-in-out, box-shadow 0.5s ease;
+    transform-style: preserve-3d;
+    scroll-snap-align: none; /* Disable snap align as it's no longer a horizontally scrolling layout */
+    height: auto; /* Adjust height based on content */
+    min-height: 100vh; /* Minimum height to fill the screen */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
-section:hover {
-    transform: translateY(-5px);
+.fade-in {
+    opacity: 1;
+}
+
+.fade-out {
+    opacity: 0.2;
 }
 
 h2 {
     font-weight: 900;
-    color: #a044ff; /* Purple for headings */
+    color: #a044ff;
     margin-bottom: 15px;
 }
 
-.skills-container {
+.skills-container, .skill-category {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
-    padding: 20px;
-}
-
-.skill-category {
-    background: #262626; /* Slightly lighter black for skill categories */
+    background: #262626;
     border-radius: 8px;
     padding: 15px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out;
 }
 
 .skill-category:hover {
-    transform: translateY(-5px);
-    background: #333; /* Dark grey on hover */
+    background: #333;
 }
 
 .skill-category h3 {
@@ -87,92 +94,47 @@ h2 {
 
 .skill-category h3 i {
     margin-right: 10px;
-    color: #a044ff; /* Purple icons */
+    color: #a044ff;
 }
 
-.skill-category p {
+.skill-category p, a {
     margin: 10px 0 0;
-    font-weight: 400;
-}
-
-a {
-    color: #a044ff; /* Purple links */
+    color: #a044ff;
     text-decoration: none;
-    font-weight: 400;
     transition: color 0.2s ease-in-out;
 }
 
 a:hover {
-    color: #dab6ff; /* Lighter purple on hover */
+    color: #dab6ff;
     text-decoration: underline;
 }
 
+/* Adjustments for smaller screens */
 @media (max-width: 768px) {
-    header h1 {
-        font-size: 2rem; /* Adjusted for smaller screens */
-    }
-
-    header p {
-        font-size: 1rem;
-    }
-
-    .skills-container {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    section {
+        padding: 20px;
     }
 }
 
 #typed-name:after {
     content: '|';
     animation: blink 1s infinite;
-    color: #fff; /* Ensuring cursor color is visible */
 }
 
 @keyframes blink {
     50% { opacity: 0; }
 }
 
-.wave-container {
+.wave-container, .waves, .parallax > use {
     position: absolute;
     width: 100%;
-    height: 100%;
-    bottom: 0;
-    left: 0;
-    z-index: -1; /* Positions the wave behind the text */
-}
-
-.waves {
-    position: relative;
-    width: 100%;
-    height: 15vh;
-    margin-bottom: -7px; /* Fix for Safari gap */
     min-height: 100px;
     max-height: 150px;
-}
-
-.parallax > use {
-    animation: moveForever 25s cubic-bezier(.55,.5,.45,.5) infinite;
-    fill: rgba(255,255,255,0.2); /* Adjusted wave color for visibility against the dark background */
+    z-index: -1;
+    fill: rgba(255,255,255,0.2);
 }
 
 @keyframes moveForever {
-    0% {
-        transform: translate3d(-90px, 0, 0);
-    }
-    100% {
-        transform: translate3d(85px, 0, 0);
-    }
-}
-
-
-section {
-    opacity: 0.5; /* Default lower opacity for non-active sections */
-    transition: opacity 1s ease-in-out;
-}
-
-.fade-in {
-    opacity: 1; /* Full opacity for the active (central) section */
-}
-
-.fade-out {
-    opacity: 0.2; /* Less opacity for non-central sections */
+    0% { transform: translate3d(-90px, 0, 0); }
+    100% { transform: translate3d(85px, 0, 0); }
 }
